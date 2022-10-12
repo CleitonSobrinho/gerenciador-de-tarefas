@@ -10,7 +10,7 @@ import "./AddTask.scss";
 
 
 
-const AddTask = () => {
+const AddTask = ({fechTasks}) => {
     const [task, setTask] = useState("");
 
     const alert = useAlert();
@@ -28,8 +28,12 @@ const AddTask = () => {
                 description: task,
                 isCompleted: false,
             });
+            await fechTasks();
+
+            setTask("");
+
         } catch (error) {
-            
+            alert.error("Algo deu errado.");
         }
     };
 
@@ -37,7 +41,7 @@ const AddTask = () => {
         <div className="add-task-container">
             <CustomInput
                 label="Adicionar Tarefa..."
-                value= ""
+                value= {task}
                 onChange={onChange} />
 
             <CustomButton onClick={handleTaskAddition}>
