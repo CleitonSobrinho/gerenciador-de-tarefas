@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import axios from "axios";
 import { useAlert } from "react-alert";
 
@@ -23,22 +23,30 @@ const Tasks = () => {
         }
     }
 
+    const lastTasks = useMemo(() => {
+        return tasks.filter((task) => task.isCompleted === false)
+    }, [tasks]);
+
+    const completedTask = useMemo(() => {
+        return tasks.filter((task) => task.isCompleted === true)
+    }, [tasks]);
+
+
     useEffect(() => {
         fechTasks()
     }, [])
+
 
     return (
         <div className="tasks-container">
             <h2>Minhas tarefas</h2>
             <div className="last-tasks">
                 <h3>Últimas tarefas</h3>
-                <AddTask  fechTasks={fechTasks}/>
+                <AddTask fechTasks={fechTasks} />
                 <div className="tasks-list">
-                    {tasks
-                        .filter((task) => task.isCompleted === false)
-                        .map((lastTask) => (
-                            <TaskItem key={lastTask._id} task={lastTask} fechTasks={fechTasks} />
-                        ))}
+                    {lastTasks.map((lastTask) => (
+                        <TaskItem key={lastTask._id} task={lastTask} fechTasks={fechTasks} />
+                    ))}
                 </div>
 
             </div>
@@ -46,11 +54,9 @@ const Tasks = () => {
             <div className="completed-tasks">
                 <h3>Tarefas concluídas</h3>
                 <div className="tasks-list">
-                    {tasks
-                        .filter((task) => task.isCompleted === true)
-                        .map((completedTask) => (
-                            <TaskItem key={completedTask._id} task={completedTask} fechTasks={fechTasks}/>
-                        ))}
+                    {completedTask.map((completedTask) => (
+                        <TaskItem key={completedTask._id} task={completedTask} fechTasks={fechTasks} />
+                    ))}
                 </div>
             </div>
 
