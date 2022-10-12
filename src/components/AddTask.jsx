@@ -2,20 +2,20 @@ import CustomInput from "./CustomInput"
 import "./AddTask.scss"
 import { useState } from "react";
 
-const AddTask = ( ) => {
-    const [task, setTask] = useState( " " );
+const AddTask = () => {
+    const [task, setTask] = useState(" ");
 
     const onChange = (e) => {
         setTask(e.target.value);
     };
-        return (
-            <div className="add-task-container">
-                    <CustomInput 
-                        label="Adicionar Tarefa..." 
-                        value=" '' "
-                        onChange={onChange}/>
-            </div>
-        )
+    return (
+        <div className="add-task-container">
+            <CustomInput
+                label="Adicionar Tarefa..."
+                value=" '' "
+                onChange={onChange} />
+        </div>
+    )
 };
 
 
