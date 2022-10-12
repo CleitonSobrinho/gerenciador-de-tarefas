@@ -24,6 +24,10 @@ const AddTask = () => {
             if (task.length === 0){
                 return alert.error("A tarefa precisa de uma descrição para ser adcionada." );
             }
+            await axios.post("https://fsc-task-manager-backend.herokuapp.com/tasks", {
+                description: task,
+                isCompleted: false,
+            });
         } catch (error) {
             
         }
