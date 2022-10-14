@@ -10,7 +10,7 @@ import "./AddTask.scss";
 
 
 
-const AddTask = ({fechTasks}) => {
+const AddTask = ({ fechTasks }) => {
     const [task, setTask] = useState("");
 
     const alert = useAlert();
