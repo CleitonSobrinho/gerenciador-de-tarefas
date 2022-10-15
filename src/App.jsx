@@ -5,7 +5,7 @@ import Login from './pages/Login'
 
 import './App.scss'
 
-function App() {
+function App () {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
