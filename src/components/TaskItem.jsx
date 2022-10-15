@@ -1,38 +1,35 @@
-import axios from "axios";
-import { useAlert } from "react-alert";
+import axios from 'axios'
+import { useAlert } from 'react-alert'
 
-import "./TaskItem.scss"
-import { AiFillDelete } from "react-icons/ai";
-
+import './TaskItem.scss'
+import { AiFillDelete } from 'react-icons/ai'
 
 const TaskItem = ({ task, fechTasks }) => {
-  const alert = useAlert();
+  const alert = useAlert()
 
   const handleTaskDeletion = async () => {
     try {
-      await axios.delete(`https://fsc-task-manager-backend.herokuapp.com/tasks/${task._id}`);
+      await axios.delete(`https://fsc-task-manager-backend.herokuapp.com/tasks/${task._id}`)
 
-      await fechTasks();
+      await fechTasks()
 
-      alert.success("A tarefa foi removida com sucesso!")
-
+      alert.success('A tarefa foi removida com sucesso!')
     } catch (_error) {
-      alert.error("Algo deu errado.")
+      alert.error('Algo deu errado.')
     }
-  };
+  }
 
   const handleTaskCompletationChange = async (e) => {
     try {
       await axios.patch(`https://fsc-task-manager-backend.herokuapp.com/tasks/${task._id}`, {
-        isCompleted: e.target.checked,
-      });
+        isCompleted: e.target.checked
+      })
 
-      await fechTasks();
+      await fechTasks()
 
-      alert.success("A tarefa foi modificada com sucesso!")
-
+      alert.success('A tarefa foi modificada com sucesso!')
     } catch (_error) {
-      alert.error("Algo deu errado.")
+      alert.error('Algo deu errado.')
     }
   }
 
@@ -42,15 +39,15 @@ const TaskItem = ({ task, fechTasks }) => {
         <div className="task-description">
           <label className={
             task.isCompleted
-              ? "checkbox-container-completed"
-              : "checkbox-container "
+              ? 'checkbox-container-completed'
+              : 'checkbox-container '
           }>
             {task.description};
             <input type="checkbox" defaultChecked={task.isCompleted} onChange={(e) => handleTaskCompletationChange(e)} />
             <span className={
               task.isCompleted
-                ? "checkmark completed"
-                : "checkmark"
+                ? 'checkmark completed'
+                : 'checkmark'
             } >
             </span>
           </label>
@@ -61,10 +58,8 @@ const TaskItem = ({ task, fechTasks }) => {
         </div>
       </div>
 
-
     </>
   )
-};
+}
 
-
-export default TaskItem;
+export default TaskItem

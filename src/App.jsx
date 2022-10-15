@@ -1,10 +1,9 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route } from 'react-router-dom'
 
-import Home from "./pages/Home";
-import Login from "./pages/Login";
+import Home from './pages/Home'
+import Login from './pages/Login'
 
-import "./App.scss"
-
+import './App.scss'
 
 function App() {
   return (
@@ -13,9 +12,7 @@ function App() {
       <Route path="/login" element={<Login />} />
     </Routes>
 
-  );
+  )
 };
 
-
-
-export default App;
+export default App
