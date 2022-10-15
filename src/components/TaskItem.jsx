@@ -3,7 +3,7 @@ import { useAlert } from "react-alert";
 
 import "./TaskItem.scss"
 import { AiFillDelete } from "react-icons/ai";
-import { wait } from "@testing-library/user-event/dist/utils";
+
 
 const TaskItem = ({ task, fechTasks }) => {
   const alert = useAlert();
