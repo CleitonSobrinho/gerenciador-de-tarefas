@@ -11,17 +11,17 @@ const Sidebar = () => {
     navigate('/login')
   }
   return (
-        <div className="sidebar-container">
-            <div className="logo">
-                <img src={logo} alt="Full Stack Club" />
-            </div>
+    <div className="sidebar-container">
+      <div className="logo">
+        <img src={logo} alt="Full Stack Club" />
+      </div>
 
-            <div className="sign-out">
-                <CustomButton onClick={handleSignOutClick}>
-                    Sair
-                </CustomButton>
-            </div>
-        </div>
+      <div className="sign-out">
+        <CustomButton onClick={handleSignOutClick}>
+          Sair
+        </CustomButton>
+      </div>
+    </div>
   )
 }
 

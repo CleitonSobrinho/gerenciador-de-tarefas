@@ -37,17 +37,17 @@ const AddTask = ({ fechTasks }) => {
   }
 
   return (
-        <div className="add-task-container">
-            <CustomInput
-                label="Adicionar Tarefa..."
-                value= {task}
-                onChange={onChange}
-                onEnterPress={handleTaskAddition}/>
+    <div className="add-task-container">
+      <CustomInput
+        label="Adicionar Tarefa..."
+        value={task}
+        onChange={onChange}
+        onEnterPress={handleTaskAddition} />
 
-            <CustomButton onClick={handleTaskAddition}>
-                <FaPlus size={14} color="#ffffff" />
-            </CustomButton>
-        </div>
+      <CustomButton onClick={handleTaskAddition}>
+        <FaPlus size={14} color="#ffffff" />
+      </CustomButton>
+    </div>
   )
 }
 
