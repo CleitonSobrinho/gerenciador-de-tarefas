@@ -9,7 +9,7 @@ const TaskItem = ({ task, fechTasks }) => {
 
   const handleTaskDeletion = async () => {
     try {
-      await axios.delete(`https://fsc-task-manager-backend.herokuapp.com/tasks/${task._id}`)
+      await axios.delete(`${process.env.REACT_APP_API_URL}/tasks/${task._id}`)
 
       await fechTasks()
 
@@ -21,7 +21,7 @@ const TaskItem = ({ task, fechTasks }) => {
 
   const handleTaskCompletationChange = async (e) => {
     try {
-      await axios.patch(`https://fsc-task-manager-backend.herokuapp.com/tasks/${task._id}`, {
+      await axios.patch(`${process.env.REACT_APP_API_URL}/tasks/${task._id}`, {
         isCompleted: e.target.checked
       })
 
